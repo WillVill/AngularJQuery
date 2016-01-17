@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="AngularScript.js" type="text/javascript"></script>
+  <a href="tableAngular.html"></a>
+  </head>
+  <body ng-app="app" ng-controller="controller">
+    <div>
+      <table class="table">
+          <thead>
+          <tr>
+              <td>
+                  <button ng-click="order('id')">
+                  id
+                  </button>
+              </td>
+              <td>
+                  <button ng-click="order('age')">
+                  age
+                  </button>
+              </td>
+              <td>
+                  <button ng-click="order('eyeColor')">
+                  eye color
+                  </button>
+              </td>
+              <td>
+                  <button ng-click="order('name')">
+                  name
+                  </button>
+              </td>
+              <td>
+                  <button ng-click="order('email')">
+                  email
+                  </button>
+              </td>
+               <td>
+                  friends
+              </td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="d in data | orderBy:predicate:reverse">
+              <td>
+                  {{d.id}}
+              </td>
+              <td>
+                  {{d.age}}
+              </td>
+              <td>
+                  {{d.eyeColor}}
+              </td>
+              <td>
+                  {{d.name}}
+              </td>
+              <td>
+                  {{d.email}}
+              </td>
+              <td>
+                  <a ng-repeat="s in d.friends" ng-click="setFriend(s)">
+                      {{s.id}}
+                  </a>              
+              </td>
+          </tr>
+          </tbody>
+      </table>
+        <br>
+        <br>
+      <table class="table">
+          <tr>
+            <td>{{friend.id}}</td>
+            <td>{{friend.age}}</td>
+            <td>{{friend.name}}</td>
+            <td>{{friend.email}}</td>
+            </tr>
+        </table>
+      <a href='index.html'>Back</a>
+    </div>
+  </body>
+</html>
